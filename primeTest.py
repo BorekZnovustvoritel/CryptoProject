@@ -73,3 +73,4 @@ if __name__ == "__main__":
             print("Číslo "+str(num)+" není prvočíslo.")
     else:
         print("Lmao, nauč se číst.")
+    input()
