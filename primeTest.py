@@ -1,8 +1,8 @@
 from random import randint
-#try:
-from squareAndMultiply import squareAndMultiply
-#except ImportError:
-    #print("Missing an important module: squareAndMultiply.py")
+try:
+    from squareAndMultiply import squareAndMultiply
+except ImportError:
+    raise ImportError("Missing 'squareAndMultiply' module.")
 def millerRabin(num, maxIter):
     if (num % 2) == 0:
         return False
@@ -13,10 +13,9 @@ def millerRabin(num, maxIter):
         s += 1
     r = part
     iMax = s - 1
-    print("s="+str(s)+", r="+str(r))
     bases = []
     iterNum = 1
-    while (iterNum < maxIter) and (iterNum <= num - 3):
+    while (iterNum < maxIter) and (iterNum <= num - 3): #nelze provést více operací než num - 3, protože jsou zkoumány již využité základy a těch je nejvíc n - 3 (2 až n - 2)
         base = randint(2, num - 2)
         if base in bases:
             continue
@@ -56,8 +55,20 @@ def lucasLehmer(num):
     else:
         return False
 
+def primeTest(num):
+    if num < 2:
+        return False
+    else:
+        try:
+            return lucasLehmer(num)
+        except ValueError:
+            if num - 3 < 500:
+                return millerRabin(num, num - 3)
+            else:
+                return millerRabin(num, 500)
+
 if __name__ == "__main__":
-    alg = int(input("Zadejte 1 pro Miller-Rabinův test, 2 pro Lucas-Lehmerův test: "))
+    alg = int(input("Zadejte 1 pro Miller-Rabinův test, 2 pro Lucas-Lehmerův test, 3 pro automatický výběr: "))
     if alg == 1:
         num = int(input("Zadejte celé číslo: "))
         maxIter = int(input("Zadejte počet cyklů: "))
@@ -71,6 +82,10 @@ if __name__ == "__main__":
             print("Číslo "+str(num)+" je prvočíslo.")
         else:
             print("Číslo "+str(num)+" není prvočíslo.")
-    else:
-        print("Lmao, nauč se číst.")
+    elif alg == 3:
+        num = int(input("Zadejte celé číslo: "))
+        if primeTest(num) == True:
+            print("Číslo "+str(num)+" je prvočíslo.")
+        else:
+            print("Číslo "+str(num)+" není prvočíslo.")
     input()
