@@ -20,4 +20,5 @@ if __name__ == "__main__":
     n = int(input("Zadejte n: "))
     ans = disLog(a, b, n)
     print(ans)
+
     input()

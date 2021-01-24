@@ -34,6 +34,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="inp.py" />
+    <Compile Include="inverse.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="primeGen.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="primeTest.py">
       <SubType>Code</SubType>
     </Compile>

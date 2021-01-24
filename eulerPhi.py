@@ -17,10 +17,14 @@ def factorizationOnce(inp):
     return(ans)
 
 def nonPrimePhi(num, factInp):
-    r = num
+    numerator = 1
+    nominator = 1
     for primeN in factInp:
-        r *= (1-(1//primeN))
-    return r
+        nominator *= primeN
+        numerator *= (primeN - 1)
+    ans = num // nominator
+    ans *= numerator
+    return ans
 
 def phi(num):
     if primeTest(num):

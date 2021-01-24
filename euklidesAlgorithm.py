@@ -13,4 +13,5 @@ if __name__ == "__main__":
     a = int(input("Zadejte 1. číslo: "))
     b = int(input("Zadejte 2. číslo: "))
     print(euklides(a, b))
+
     input()

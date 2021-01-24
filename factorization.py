@@ -20,6 +20,6 @@ def factorization(num):
 
 if __name__ == "__main__":
     num = int(input("Vložte číslo, jehož faktorizaci chcete provést.\n"))
-    
     print(factorization(num))
+
     input()

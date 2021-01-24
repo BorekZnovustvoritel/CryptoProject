@@ -40,3 +40,5 @@ if __name__ == "__main__":
         A = int(input("Zadejte A: "))
         B = int(input("Zadejte B: "))
         print("Klíč je: "+str(crack(g, mod, A, B)))
+
+    input()

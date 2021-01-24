@@ -28,6 +28,7 @@ if __name__ == "__main__":
         print("Zadali jste: "+str(a)+". Tato hodnota je typu "+str(typ))
     except NotImplementedError:
         print("Ups, takový datový typ neexistuje.")
+
     input()
 
     

@@ -3,9 +3,8 @@ try:
     from squareAndMultiply import squareAndMultiply
 except ImportError:
     raise ImportError("Missing 'squareAndMultiply' module.")
+
 def millerRabin(num, maxIter):
-    if (num % 2) == 0:
-        return False
     part = num - 1
     s = 0
     while (part % 2) == 0:
@@ -58,6 +57,8 @@ def lucasLehmer(num):
 def primeTest(num):
     if num < 2:
         return False
+    elif num < 4:
+        return True
     else:
         try:
             return lucasLehmer(num)
@@ -88,4 +89,5 @@ if __name__ == "__main__":
             print("Číslo "+str(num)+" je prvočíslo.")
         else:
             print("Číslo "+str(num)+" není prvočíslo.")
+
     input()
