@@ -23,10 +23,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="cryptoProject.py" />
+    <Compile Include="diffieHellman.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="discreteLogarithm.py" />
     <Compile Include="euklidesAlgorithm.py" />
     <Compile Include="eulerPhi.py" />
     <Compile Include="factorization.py" />
+    <Compile Include="groups.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="inp.py" />
     <Compile Include="primeTest.py">
       <SubType>Code</SubType>

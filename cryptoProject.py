@@ -1,4 +1,5 @@
-import inp
 from math import sqrt
-a = inp.inp("int", "Zadejte celé číslo: ", "Zkuste to znovu: ")
-print(sqrt(a))
+try:
+    from inp import inp
+except ImportError:
+    print("Nepodařilo se načíst důležité knihovny")

@@ -9,7 +9,7 @@ def factorization(num):
             return ans
         if num % prime == 0:
             ans.append(prime)
-            num = num / prime
+            num = num // prime
             root = sqrt(num)
         else:
             if prime == 2:      #tento blok říká, že pokud jsme dělili číslem 2,

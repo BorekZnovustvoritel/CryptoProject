@@ -1,7 +1,7 @@
-def DisLog(a, b, n):
+def disLog(a, b, n):
     iteratedNumbers = []
-    left = a
-    right = b
+    left = a % n
+    right = b % n
     ans = 1
     while (left != right):
         right *= b
@@ -9,7 +9,7 @@ def DisLog(a, b, n):
         right = right % n
         for i in iteratedNumbers:
             if i == right:
-                return "Neexistuje řešení."
+                raise ValueError("Neexistuje řešení.")
         iteratedNumbers.append(right)
     return ans
 
@@ -18,6 +18,6 @@ if __name__ == "__main__":
     a = int(input("Zadejte a: "))
     b = int(input("Zadejte b: "))
     n = int(input("Zadejte n: "))
-    ans = DisLog(a, b, n)
+    ans = disLog(a, b, n)
     print(ans)
     input()
