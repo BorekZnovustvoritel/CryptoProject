@@ -1,9 +1,16 @@
 from random import randint
 from primeTest import primeTest
-def primeGen(bitlength):
-    prime = randint(2**(bitlength-1), 2**(bitlength) - 1)
+
+def primeGen(bitLength):
+    prime = randint(2**(bitLength-1), 2**(bitLength) - 1)
     while not primeTest(prime):
-        prime = randint(2**(bitlength-1), 2**(bitlength) - 1)
+        prime = randint(2**(bitLength-1), 2**(bitLength) - 1)
+    return prime
+
+def primeFrom(start, stop):
+    prime = randint(start, stop)
+    while not primeTest(prime):
+        prime = randint(start, stop)
     return prime
 
 if __name__ == "__main__":

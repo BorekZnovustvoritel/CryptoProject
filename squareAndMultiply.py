@@ -16,6 +16,6 @@ if __name__ == "__main__":
     base = int(input("\nZadejte základ pro mocnění: "))
     exponent = int(input("Zadejte exponent: "))
     modulus = int(input("Zadejte modulo: "))
-    print(squareAndMultiply(base, exponent, modulus))
+    print("\n", squareAndMultiply(base, exponent, modulus))
     
     input()

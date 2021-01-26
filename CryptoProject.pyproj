@@ -43,6 +43,9 @@
     <Compile Include="primeTest.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="rsa.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="squareAndMultiply.py" />
   </ItemGroup>
   <ItemGroup>
