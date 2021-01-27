@@ -8,16 +8,18 @@ def crack(g, mod, A, B):
     a = disLog(A, g, mod)
     return squareAndMultiply(B, a, mod)
 
-def setKey(g = None, modLength = None, mod = None, a = None, b = None):
+def setKey(g = None, modLength = None, mod = None, a = None, b = None):#v praxi nevyužitelná funkce, jen pro demonstrativní účely
     if not mod:
         if not modLength:
             modLength = 2048
         print("Generování prvočísla o délce %d bitů..." % modLength)
         mod = primeGen(modLength)
         print("Hotovo!")
+    else:
+        modLength = len(bin(mod)) - 2
     if not g:
         g = randint(2, mod - 1)
-    if modLength < 124:
+    if modLength < 32:
         q = getElementDegree(g, mod)
     else:
         q = g
@@ -56,7 +58,7 @@ if __name__ == "__main__":
         except ValueError:
             b = None
         mod, g, a, b, A, B, keyA, keyB = setKey(g, modLength, mod, a, b)
-        print("mod = %d\ng = %d\na = %d\n b = %d\n A = %d\n B = %d\n keyA = %d\n keyB = %d" % (mod, g, a, b, A, B, keyA, keyB))
+        print("mod = %d\ng = %d\na = %d\nb = %d\nA = %d\nB = %d\nkeyA = %d\nkeyB = %d" % (mod, g, a, b, A, B, keyA, keyB))
     elif mode == 2:
         g = int(input("Zadejte prvek g: "))
         mod = int(input("Zadejte prvočíselné modulo grupy: "))
