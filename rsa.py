@@ -11,7 +11,9 @@ def encrypt(num, publicKey, mod):
 def decrypt(num, secretKey, mod):
     return squareAndMultiply(num, secretKey, mod)
 
-def generate(bitLength = 2048, publicKey = None):
+def generate(bitLength = None, publicKey = None):
+    if not bitLength:
+        bitLength = 2048
     if bitLength % 2 != 0:
         raise ValueError("Nelze vytvořit RSA o liché bitové délce.")
     primeBitLength = (bitLength // 2)
