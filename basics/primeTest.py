@@ -1,10 +1,7 @@
 from random import randint
-try:
-    from squareAndMultiply import squareAndMultiply
-except ImportError:
-    raise ImportError("Missing 'squareAndMultiply' module.")
+from basics.squareAndMultiply import squareAndMultiply
 
-def millerRabin(num, maxIter):
+def millerRabin(num, maxIter = 500):
     part = num - 1
     s = 0
     while (part % 2) == 0:

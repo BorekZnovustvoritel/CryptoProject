@@ -1,4 +1,4 @@
-from primeTest import primeTest
+from basics.primeTest import primeTest
 def factorizationOnce(inp):
     ans = [1]
     prime = 2

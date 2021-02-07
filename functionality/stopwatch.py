@@ -1,6 +1,6 @@
 from time import perf_counter
-from rsa import generate
-from eulerPhi import phi
+from algorithms.rsa import generate
+from basics.eulerPhi import phi
 
 def stopwatch(foo, **kwargs):
     ref = perf_counter()
@@ -12,5 +12,8 @@ if __name__ == "__main__":
     ans, stop = stopwatch(generate)#, bitLength = 512)#, publicKey = 7)
     mod, Pk, Sk = ans
     print("Mod = %d\nPk = %d\nSk = %d\n\nThis process took %.2f seconds." % (mod, Pk, Sk, stop))
+
     #phi, time = stopWatch(phi, num = 19)
     #print(phi, time)
+
+    input()

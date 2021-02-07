@@ -1,5 +1,5 @@
 from random import randint
-from primeTest import primeTest
+from basics.primeTest import primeTest
 
 def primeGen(bitLength):
     prime = randint(2**(bitLength-1), 2**(bitLength) - 1)

@@ -1,8 +1,8 @@
 from random import randint
-from discreteLogarithm import disLog
-from squareAndMultiply import squareAndMultiply
-from groups import getElementDegree
-from primeGen import primeGen
+from basics.discreteLogarithm import disLog
+from basics.squareAndMultiply import squareAndMultiply
+from basics.groups import getElementDegree
+from basics.primeGen import primeGen
 
 def crack(g, mod, A, B):
     a = disLog(A, g, mod)

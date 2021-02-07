@@ -1,9 +1,9 @@
-from multiprocessing import Pool
+#from multiprocessing import Pool
 from random import randint
-from squareAndMultiply import squareAndMultiply
-from primeGen import primeGen, primeFrom
-from inverse import extendedEuklides as inverse
-from primeTest import primeTest
+from basics.squareAndMultiply import squareAndMultiply
+from basics.primeGen import primeGen
+from basics.inverse import extendedEuklides as inverse
+from basics.primeTest import primeTest
 
 def encrypt(num, publicKey, mod):
     return squareAndMultiply(num, publicKey, mod)
@@ -18,14 +18,20 @@ def generate(bitLength = None, publicKey = None):
         raise ValueError("Nelze vytvořit RSA o liché bitové délce.")
     primeBitLength = (bitLength // 2)
     print("Generuji prvočísla o délce %d bitů..." % primeBitLength)
-    with Pool(2) as p:
-        r, s = p.map(primeGen, [primeBitLength, primeBitLength])
+    r = primeGen(primeBitLength)
+    print("1/2 hotovo!")
+    s = primeGen(primeBitLength)
+    #with Pool(2) as p:
+    #    r = p.apply_async(primeGen, (primeBitLength,)).get()
+    #    s = p.apply_async(primeGen, (primeBitLength,)).get()
+    #    r, s = p.map(primeGen, [primeBitLength, primeBitLength])
+    #    p.join()
     mod = r * s
     print("Hotovo!")
     phiMod = (r - 1) * (s - 1)
     print("Generuji klíče...")
-    if (publicKey == None):# or (primeTest(publicKey) == False):
-        publicKey = randint(3, phiMod - 2)#primeFrom(3, phiMod - 2)
+    if (publicKey == None):
+        publicKey = randint(3, phiMod - 2)
     secretKey = None
     while not secretKey:
         try:

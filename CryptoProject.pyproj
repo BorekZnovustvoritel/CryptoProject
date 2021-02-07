@@ -11,7 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>CryptoProject</Name>
     <RootNamespace>CryptoProject</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>Global|PythonCore|3.9</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,32 +22,38 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="functionality\clear.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="functionality\menu.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="cryptoProject.py" />
-    <Compile Include="diffieHellman.py">
+    <Compile Include="algorithms\diffieHellman.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="discreteLogarithm.py" />
-    <Compile Include="euklidesAlgorithm.py" />
-    <Compile Include="eulerPhi.py" />
-    <Compile Include="factorization.py" />
-    <Compile Include="groups.py">
+    <Compile Include="basics\discreteLogarithm.py" />
+    <Compile Include="basics\euklidesAlgorithm.py" />
+    <Compile Include="basics\eulerPhi.py" />
+    <Compile Include="basics\factorization.py" />
+    <Compile Include="basics\groups.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="inp.py" />
-    <Compile Include="inverse.py">
+    <Compile Include="functionality\inp.py" />
+    <Compile Include="basics\inverse.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="primeGen.py">
+    <Compile Include="basics\primeGen.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="primeTest.py">
+    <Compile Include="basics\primeTest.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="rsa.py">
+    <Compile Include="algorithms\rsa.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="squareAndMultiply.py" />
-    <Compile Include="stopwatch.py">
+    <Compile Include="basics\squareAndMultiply.py" />
+    <Compile Include="functionality\stopwatch.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -61,6 +67,14 @@
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
       <Architecture>X64</Architecture>
     </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="basics\" />
+    <Folder Include="algorithms\" />
+    <Folder Include="functionality\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.9" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

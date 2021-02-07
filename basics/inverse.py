@@ -1,6 +1,6 @@
-from euklidesAlgorithm import euklides as GCD
-from eulerPhi import phi
-from squareAndMultiply import squareAndMultiply
+from basics.euklidesAlgorithm import euklides as GCD
+from basics.eulerPhi import phi
+from basics.squareAndMultiply import squareAndMultiply
 
 def inverse(num, mod):
     if GCD(num, mod) != 1:

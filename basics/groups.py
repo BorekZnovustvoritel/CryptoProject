@@ -1,5 +1,5 @@
-from eulerPhi import phi, factorizationOnce
-from squareAndMultiply import squareAndMultiply
+from basics.eulerPhi import phi, factorizationOnce
+from basics.squareAndMultiply import squareAndMultiply
 
 def getElementDegree(num, mod):
     groupDegree = phi(mod)
