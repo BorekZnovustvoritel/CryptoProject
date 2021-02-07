@@ -8,8 +8,8 @@ from basics.primeTest import primeTest
 def encrypt(num, publicKey, mod):
     return squareAndMultiply(num, publicKey, mod)
 
-def decrypt(num, secretKey, mod):
-    return squareAndMultiply(num, secretKey, mod)
+def decrypt(num, privateKey, mod):
+    return squareAndMultiply(num, privateKey, mod)
 
 def generate(bitLength = None, publicKey = None):
     if not bitLength:
@@ -32,14 +32,14 @@ def generate(bitLength = None, publicKey = None):
     print("Generuji klíče...")
     if (publicKey == None):
         publicKey = randint(3, phiMod - 2)
-    secretKey = None
-    while not secretKey:
+    privateKey = None
+    while not privateKey:
         try:
-            secretKey = inverse(publicKey, phiMod)
+            privateKey = inverse(publicKey, phiMod)
         except ValueError:
             publicKey = randint(3, phiMod - 2)
             continue
-    return mod, publicKey, secretKey
+    return mod, publicKey, privateKey
 
 if __name__ == "__main__":
     exit = False
