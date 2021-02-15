@@ -1,8 +1,10 @@
 from random import randint
-from basics.primeTest import primeTest
+from basics.primeTest import millerRabin as primeTest
 
 def primeGen(bitLength):
     prime = randint(2**(bitLength-1), 2**(bitLength) - 1)
+    if prime % 2 == 0:
+        prime += 1
     while not primeTest(prime):
         prime = randint(2**(bitLength-1), 2**(bitLength) - 1)
     return prime

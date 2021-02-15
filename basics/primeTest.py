@@ -1,7 +1,7 @@
 from random import randint
 from basics.squareAndMultiply import squareAndMultiply
 
-def millerRabin(num, maxIter = 500):
+def millerRabin(num, maxIter = 40):
     part = num - 1
     s = 0
     while (part % 2) == 0:
