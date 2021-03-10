@@ -1,25 +1,25 @@
 from random import randint
 from basics.squareAndMultiply import squareAndMultiply
 
-def millerRabin(num, maxIter = 40):
-    part = num - 1
+def millerRabin(num, maxIter = 10):
+    part = num - 1 #rozklad na tvar num = 2^s*r+1
     s = 0
     while (part % 2) == 0:
         part = part // 2
         s += 1
-    r = part
-    iMax = s - 1
+    r = part #končí zde
+    iMax = s - 1 #nejvyšší index pro druhou část algoritmu
     bases = []
-    iterNum = 1
-    while (iterNum < maxIter) and (iterNum <= num - 3): #nelze provést více operací než num - 3, protože jsou zkoumány již využité základy a těch je nejvíc n - 3 (2 až n - 2)
+    iterNum = 0 #číslo iterace
+    while (iterNum < maxIter) and (iterNum <= num - 4): #nelze provést více operací než num - 3, protože jsou zkoumány již využité základy a těch je nejvíc n - 3 (2 až n - 2), ale začínáme nulou
         base = randint(2, num - 2)
-        if base in bases:
+        if base in bases: #chceme používat pokaždé jiný základ
             continue
         else:
-            bases.append(base)
+            bases.append(base) #základ si zapíšeme
             iterNum += 1
             temp = squareAndMultiply(base, r, num)
-            if temp == 1 or temp == num - 1:
+            if temp == 1 or temp == num - 1: #podínka je splněna
                 continue
             else:
                 subAns = False
@@ -29,7 +29,7 @@ def millerRabin(num, maxIter = 40):
                         subAns = True
                         break
                 if not subAns:
-                    #print(bases)
+                    #print(iterNum)
                     return False
     #print(bases)
     return True
