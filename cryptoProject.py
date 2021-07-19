@@ -4,6 +4,7 @@
 from functionality.inp import inp
 from functionality.menu import menu
 import algorithms.rsa as rsa
+import algorithms.diffieHellman as dh
 from functionality.stopwatch import stopwatch
 #^Místo pro vlastní moduly
 options = ("RSA", "Diffie-Hellman", "Základní operace")
@@ -77,8 +78,42 @@ while option != len(options) + 1:
                         input()
                 
             option1 = menu("RSA", options1)
-    #elif option == 2:
+    elif option == 2:
         #dh
+        mod = 0
+        generator = 0
+        a = 0
+        b = 0
+        A = 0
+        B = 0
+        keyAlice = 0
+        keyBob = 0
+        try:
+            g = int(input("Zadejte hodnotu prvku (Nechte prázdné pro náhodně zvolené g): "))
+        except ValueError:
+            g = None
+        try:
+            mod = int(input("Zadejte prvočíselné modulo grupy (Nechte prázdné pro náhodně zvolené modulo): "))
+            modLength = None
+        except ValueError:
+            mod = None
+            try:
+                modLength = int(input("Zadejte bitovou délku modula grupy (Nechte prázdné pro délku 2048 b): "))
+            except ValueError:
+                modLength = None
+        try:
+            a = int(input("Zadejte hodnotu a (Nechte prázdné pro náhodně zvolené a): "))
+        except ValueError:
+            a = None
+        try:
+            b = int(input("Zadejte hodnotu b (Nechte prázdné pro náhodně zvolené b): "))
+        except ValueError:
+            b = None
+        ans, time = stopwatch(dh.setKey, g = g, modLength = modLength, a = a, b = b)
+        mod, g, a, b, A, B, keyA, keyB = ans
+        print("mod = %d\ng = %d\na = %d\nb = %d\nA = %d\nB = %d\nkeyA = %d\nkeyB = %d\nOperace trvala %.3f sekund" % (mod, g, a, b, A, B, keyA, keyB, time))
+
+
 
     #elif option == 3:
         #basics

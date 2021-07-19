@@ -2,11 +2,15 @@ from random import randint
 from basics.primeTest import millerRabin as primeTest
 
 def primeGen(bitLength):
+    if bitLength < 2:
+        raise ValueError("No prime numbers exist in given range.")
     prime = randint(2**(bitLength-1), 2**(bitLength) - 1)
     if prime % 2 == 0:
         prime += 1
     while not primeTest(prime):
         prime = randint(2**(bitLength-1), 2**(bitLength) - 1)
+        if prime % 5 == 0:
+            continue
     return prime
 
 def primeFrom(start, stop):
