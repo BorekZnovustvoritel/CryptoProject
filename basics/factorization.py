@@ -1,7 +1,11 @@
 from math import sqrt
+from time import perf_counter
 def factorization(num):
-    prime = 2
     ans = []
+    while num % 2 == 0:
+        num = num // 2
+        ans.append(2)
+    prime = 3
     root = sqrt(num)
     while num != 1:
         if prime > root:
@@ -12,14 +16,16 @@ def factorization(num):
             num = num // prime
             root = sqrt(num)
         else:
-            if prime == 2:      #tento blok říká, že pokud jsme dělili číslem 2,
-                prime = 3       #další máme zvolit číslo 3, jinak skáčeme o 2 čísla
-            else:               #(nemá smysl testovat sudá čísla)
-                prime += 2
+            prime += 2
+            if prime > root:
+                break
+    if num != 1:
+        ans.append(num)
     return ans
 
 if __name__ == "__main__":
     num = int(input("Vložte číslo, jehož faktorizaci chcete provést.\n"))
+    ref = perf_counter()
     print(factorization(num))
-
+    print("Operace zabrala %.4f sekund" % (perf_counter() - ref))
     input()

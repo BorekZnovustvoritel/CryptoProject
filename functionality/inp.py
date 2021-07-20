@@ -9,6 +9,8 @@ def inp(type = str, quote = None, repeatQuote = None, skipable = False):
               ans = type(input())
           else:
               ans = type(input(quote))
+          if ans < 1:
+              raise ValueError("Positive values only")
         except ValueError:
             if skipable:
                 return None
@@ -17,7 +19,9 @@ def inp(type = str, quote = None, repeatQuote = None, skipable = False):
                   if not repeatQuote:
                       ans = type(input())
                   else:
-                      ans = ans = type(input(repeatQuote))
+                      ans = type(input(repeatQuote))
+                  if ans < 1:
+                      ans = None
               except ValueError:
                   ans = None
         return ans
