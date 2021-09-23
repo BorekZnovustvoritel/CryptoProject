@@ -94,11 +94,14 @@ while option != len(options) + 1:
         if not mod:
             modLength = inp(int, "Zadejte bitovou délku modula grupy (Nechte prázdné pro délku 2048 b): ", "Zkuste to znovu: ", skipable=True)
         g = inp(int, "Zadejte hodnotu prvku (Nechte prázdné pro náhodně zvolené g): ", "Zkuste to znovu: ", skipable = True)
-        g = g % mod
+        if g is not None:
+            g = g % mod
         a = inp(int, "Zadejte hodnotu a (Nechte prázdné pro náhodně zvolené a): ", "Zkuste to znovu: ", skipable = True)
-        a = a % mod
+        if a is not None:
+            a = a % mod
         b = inp(int, "Zadejte hodnotu b (Nechte prázdné pro náhodně zvolené b): ", "Zkuste to znovu: ", skipable = True)
-        b = b % mod
+        if b is not None:
+            b = b % mod
         ans, time = stopwatch(dh.setKey, g = g, modLength = modLength, mod = mod, a = a, b = b)
         mod, g, a, b, A, B, keyA, keyB = ans
         print("Bylo zvoleno:\nmod = %d\ng = %d\nAlice vygenerovala a = %d\nBob vygeneroval b = %d\nAlice poslala A = %d\nBob poslal B = %d\nAlice získala klíč: %d\nBob získal klíč: %d\nOperace trvala %.3f sekund" % (mod, g, a, b, A, B, keyA, keyB, time))
