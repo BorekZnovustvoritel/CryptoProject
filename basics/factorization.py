@@ -23,6 +23,7 @@ def factorization(num):
         ans.append(num)
     return ans
 
+
 if __name__ == "__main__":
     num = int(input("Vložte číslo, jehož faktorizaci chcete provést.\n"))
     ref = perf_counter()
